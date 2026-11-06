@@ -167,3 +167,20 @@ All thresholds live in `src/sentinellite/detection/rules.yaml`.
 **Why dry-run only for firewall commands?** The spec forbids `subprocess` calls and elevation. Printing the command lets a human review it before running in an elevated shell.
 
 **Why no CDN in the HTML report?** The report must be viewable offline and must not beacon to external servers when opened.
+
+---
+
+## Screenshots
+
+![HTML report showing summary cards, top attackers table, and alert details](docs/report.png)
+
+---
+
+## Roadmap
+
+- **Docker** — containerise the API so the tool runs anywhere without a manual venv setup
+- **Redis** — replace the in-process sliding-window state with a Redis stream so multiple workers can share detection state in real time
+- **Real-time tail mode** — `--follow` flag that tails a live log file and triggers detection incrementally, like `tail -f` with alerting
+- **GeoIP enrichment** — annotate source IPs with country and ASN using a local MaxMind database (no outbound calls)
+- **Go agent** — lightweight log-shipping agent written in Go for endpoints that can't run Python; forwards structured events to the FastAPI ingest endpoint
+- **Dashboard** — browser-based live dashboard (plain HTML + EventSource / SSE) served by the FastAPI process; no React, no build step
