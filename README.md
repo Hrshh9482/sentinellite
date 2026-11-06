@@ -1,6 +1,8 @@
+![CI](https://github.com/Hrshh9482/sentinellite/actions/workflows/ci.yml/badge.svg)
+
 # SentinelLite
 
-A Python-only mini-SIEM for SSH auth.log analysis. Portfolio project — one-day build, Windows 11, no Docker, no external databases.
+A Python-only mini-SIEM for SSH auth.log analysis.
 
 ---
 
@@ -55,11 +57,9 @@ Data flow:
 
 ```powershell
 # 1. Generate sample log
-$env:PYTHONPATH = "src"
 .\.venv\Scripts\python.exe tools\log_simulator.py
 
 # 2. Analyse it — table output + HTML report + SQLite DB
-$env:PYTHONPATH = "src"
 .\.venv\Scripts\python.exe -m sentinellite.cli `
     --file tests\fixtures\sample_auth.log `
     --format table `
@@ -67,17 +67,14 @@ $env:PYTHONPATH = "src"
     --db sentinel.db
 
 # 3. Start the API server
-$env:PYTHONPATH = "src"
-.\.venv\Scripts\python.exe -m sentinellite.api
+.\.venv\Scripts\python.exe -m uvicorn sentinellite.api:app --host 127.0.0.1 --port 8000
 # then open http://127.0.0.1:8000/docs
 
 # 4. Run tests
-$env:PYTHONPATH = "src"
-.\.venv\Scripts\python.exe -m pytest tests\ -v
+.\.venv\Scripts\python.exe -m pytest
 
 # 5. Lint
-$env:PYTHONPATH = "src"
-.\.venv\Scripts\python.exe -m ruff check src\ tests\
+.\.venv\Scripts\python.exe -m ruff check src/ tests/ tools/
 ```
 
 > **Override a threshold** without editing YAML:
@@ -92,20 +89,23 @@ $env:PYTHONPATH = "src"
 ```
 Parsed 109 events from tests\fixtures\sample_auth.log
 Detection complete: 6 alert(s) raised.
-
 ID    Severity   Rule                      MITRE        IP                 User             Risk
------ ---------- ------------------------- ------------ ------------------ --------------- -----
--     high       Brute Force               T1110.001    203.0.113.50       root               70
--     high       Password Spraying         T1110.003    203.0.113.50       multiple           70
--     medium     Credential Stuffing       T1110.004    multiple           alice              45
--     critical   Success After Failure     T1078        198.51.100.99      dave               95
--     medium     Privilege Abuse           T1548.003    unknown            bob                40
+---------------------------------------------------------------------------------------------- 
+-     high       brute_force               T1110.001    203.0.113.50       root               65
+-     high       brute_force               T1110.001    203.0.113.50       admin              65
+-     high       password_spraying         T1110.003    203.0.113.50       multiple           75
+-     medium     credential_stuffing       T1110.004    multiple           alice              35
+-     critical   success_after_failure     T1078        198.51.100.99      dave               90
+-     medium     privilege_abuse           T1548.003    unknown            bob                35
 
 [DRY-RUN BLOCKER] The following firewall commands would block high-severity IPs.
 Review and run manually in an elevated PowerShell session if desired:
 
+  netsh advfirewall firewall add rule name="SentinelLite-block-198.51.100.99" protocol=TCP dir=in remoteip=198.51.100.99 action=block
   netsh advfirewall firewall add rule name="SentinelLite-block-203.0.113.50" protocol=TCP dir=in remoteip=203.0.113.50 action=block
 ```
+
+Exit code is 1 when any critical alert is found (used by CI and scripts to signal action required).
 
 ---
 
@@ -121,8 +121,14 @@ recency_bonus:  10 if last_seen was within the last 5 minutes, else 0
 Clamped to [0, 100].
 ```
 
-Example: brute force, threshold=10, count=20, attack ongoing:
-`60 + min(20, 2*5) + 10 = 80`
+`volume_bonus` scales with how many times over the threshold the event count is, capped at 20.
+`recency_bonus` adds 10 points if the attack was still active within the last 5 minutes — logs analysed after the fact get 0.
+
+Worked example — `success_after_failure` from the sample output (dave, 198.51.100.99):
+- severity = critical → base = 85
+- count = 5 failures, threshold = 3 → `min(20, (5 // 3) * 5)` = `min(20, 5)` = 5
+- log was generated in the past → recency_bonus = 0
+- **risk_score = 85 + 5 + 0 = 90** ✓ (matches the table above)
 
 ---
 
@@ -145,7 +151,6 @@ All thresholds live in `src/sentinellite/detection/rules.yaml`.
 - **No year in syslog timestamps.** We inject the current year, so logs spanning a year boundary will have wrong timestamps for events before Jan 1.
 - **IPv6 partial support.** The regex extracts IPv6 candidates; unusual formats may be dropped and logged as `unknown`.
 - **Shared NAT/VPN IPs.** A brute-force alert on a corporate egress IP doesn't mean one person is attacking.
-- **Missing SPF/DKIM/DMARC** is not scored — this tool only analyses SSH auth logs, not email.
 - **`success_after_failure`** fires on slow human typo-then-success too. Treat as a signal to investigate, not proof of compromise.
 - **"No alerts"** means no strong indicators were found in the submitted log, not that the system is guaranteed uncompromised.
 - **Sudo abuse** threshold is intentional; one sudo is normal. Three in an hour warrants a look.
@@ -170,9 +175,9 @@ All thresholds live in `src/sentinellite/detection/rules.yaml`.
 
 ---
 
-## Screenshots
+## Screenshot
 
-![HTML report showing summary cards, top attackers table, and alert details](docs/report.png)
+![HTML report](docs/report.png)
 
 ---
 
