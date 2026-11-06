@@ -1,0 +1,50 @@
+# Detection rules for SentinelLite.
+#
+# Each rule defines thresholds that the detection engine reads at runtime.
+# Changing values here does NOT require code changes — that's the whole point
+# of externalising thresholds.
+#
+# Fields:
+#   enabled        - set false to disable without deleting
+#   window_minutes - sliding time window for event counting
+#   threshold      - number of qualifying events needed to fire
+#   threshold_users- (spraying/stuffing only) distinct users needed
+#   severity       - low | medium | high | critical
+#   mitre_id       - ATT&CK technique ID
+
+brute_force:
+  enabled: true
+  window_minutes: 10
+  threshold: 10          # >= 10 failures from one IP in 10 min
+  severity: high
+  mitre_id: "T1110.001"
+
+password_spraying:
+  enabled: true
+  window_minutes: 10
+  threshold: 5           # >= 5 failures from one IP ...
+  threshold_users: 3     # ... targeting >= 3 distinct users
+  severity: high
+  mitre_id: "T1110.003"
+
+credential_stuffing:
+  enabled: true
+  window_minutes: 10
+  threshold_ips: 5       # >= 5 distinct IPs ...
+  threshold: 10          # ... each with >= 1 failure, total failures >= 10
+  severity: medium
+  mitre_id: "T1110.004"
+
+success_after_failure:
+  enabled: true
+  window_minutes: 30
+  threshold: 3           # >= 3 failures before a success from same IP
+  severity: critical
+  mitre_id: "T1078"
+
+privilege_abuse:
+  enabled: true
+  window_minutes: 60
+  threshold: 3           # >= 3 sudo events from same user in window
+  severity: medium
+  mitre_id: "T1548.003"

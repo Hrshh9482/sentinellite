@@ -1,0 +1,109 @@
+Jun 15 08:01:33 myserver sshd[15229]: Accepted password for alice from 192.168.1.20 port 49482 ssh2
+Jun 15 08:01:35 myserver sshd[25256]: pam_unix(sshd:session): session opened for user alice by (uid=0)
+Jun 15 08:01:54 myserver sshd[36290]: Accepted password for alice from 10.0.0.5 port 50336 ssh2
+Jun 15 08:01:56 myserver sshd[27546]: pam_unix(sshd:session): session opened for user alice by (uid=0)
+Jun 15 08:03:11 myserver sshd[49453]: Accepted password for alice from 10.0.0.5 port 56559 ssh2
+Jun 15 08:03:13 myserver sshd[11739]: pam_unix(sshd:session): session opened for user alice by (uid=0)
+Jun 15 08:05:07 myserver sshd[47170]: Failed password for root from 203.0.113.50 port 46913 ssh2
+Jun 15 08:05:22 myserver sshd[52954]: Failed password for root from 203.0.113.50 port 46967 ssh2
+Jun 15 08:05:34 myserver sshd[51943]: Accepted password for bob from 10.0.0.6 port 48845 ssh2
+Jun 15 08:05:36 myserver sshd[55099]: pam_unix(sshd:session): session opened for user bob by (uid=0)
+Jun 15 08:05:42 myserver sshd[52129]: Failed password for root from 203.0.113.50 port 52964 ssh2
+Jun 15 08:06:01 myserver sshd[27359]: Failed password for root from 203.0.113.50 port 44681 ssh2
+Jun 15 08:06:10 myserver sshd[58823]: Failed password for root from 203.0.113.50 port 48081 ssh2
+Jun 15 08:06:23 myserver sshd[48311]: Failed password for root from 203.0.113.50 port 64478 ssh2
+Jun 15 08:06:41 myserver sshd[36175]: Failed password for root from 203.0.113.50 port 59121 ssh2
+Jun 15 08:06:57 myserver sshd[19065]: Failed password for root from 203.0.113.50 port 47186 ssh2
+Jun 15 08:07:17 myserver sshd[59530]: Failed password for root from 203.0.113.50 port 42978 ssh2
+Jun 15 08:07:23 myserver sshd[20016]: Failed password for root from 203.0.113.50 port 43592 ssh2
+Jun 15 08:07:33 myserver sshd[37666]: Failed password for root from 203.0.113.50 port 62298 ssh2
+Jun 15 08:07:37 myserver sshd[54348]: Accepted password for carol from 10.0.0.5 port 43358 ssh2
+Jun 15 08:07:39 myserver sshd[58540]: pam_unix(sshd:session): session opened for user carol by (uid=0)
+Jun 15 08:07:40 myserver sshd[35009]: Failed password for root from 203.0.113.50 port 52608 ssh2
+Jun 15 08:07:59 myserver sshd[26476]: Failed password for root from 203.0.113.50 port 57338 ssh2
+Jun 15 08:08:04 myserver sshd[57233]: Failed password for root from 203.0.113.50 port 62291 ssh2
+Jun 15 08:08:12 myserver sshd[45190]: Failed password for root from 203.0.113.50 port 62338 ssh2
+Jun 15 08:08:25 myserver sshd[32293]: Failed password for root from 203.0.113.50 port 61003 ssh2
+Jun 15 08:08:33 myserver sshd[38492]: Failed password for root from 203.0.113.50 port 49617 ssh2
+Jun 15 08:08:43 myserver sshd[10212]: Failed password for root from 203.0.113.50 port 54867 ssh2
+Jun 15 08:08:56 myserver sshd[59935]: Failed password for root from 203.0.113.50 port 56403 ssh2
+Jun 15 08:09:06 myserver sshd[16973]: Failed password for root from 203.0.113.50 port 56635 ssh2
+Jun 15 08:09:29 myserver sshd[16698]: Accepted password for alice from 10.0.0.5 port 51029 ssh2
+Jun 15 08:09:31 myserver sshd[16078]: pam_unix(sshd:session): session opened for user alice by (uid=0)
+Jun 15 08:12:55 myserver sshd[64355]: Accepted password for carol from 10.0.0.5 port 49606 ssh2
+Jun 15 08:12:57 myserver sshd[51198]: pam_unix(sshd:session): session opened for user carol by (uid=0)
+Jun 15 08:12:58 myserver sshd[49565]: Accepted password for bob from 10.0.0.5 port 51270 ssh2
+Jun 15 08:13:00 myserver sshd[27335]: pam_unix(sshd:session): session opened for user bob by (uid=0)
+Jun 15 08:14:19 myserver sshd[28231]: Accepted password for bob from 10.0.0.5 port 59309 ssh2
+Jun 15 08:14:21 myserver sshd[63046]: pam_unix(sshd:session): session opened for user bob by (uid=0)
+Jun 15 08:15:27 myserver sshd[10037]: Failed password for invalid user root from 203.0.113.50 port 57378 ssh2
+Jun 15 08:15:56 myserver sshd[42021]: Failed password for invalid user root from 203.0.113.50 port 50621 ssh2
+Jun 15 08:16:06 myserver sshd[33788]: Failed password for invalid user ubuntu from 203.0.113.50 port 43665 ssh2
+Jun 15 08:16:44 myserver sshd[25692]: Failed password for invalid user ubuntu from 203.0.113.50 port 50076 ssh2
+Jun 15 08:16:55 myserver sshd[47182]: Failed password for invalid user admin from 203.0.113.50 port 47892 ssh2
+Jun 15 08:17:35 myserver sshd[15613]: Failed password for invalid user admin from 203.0.113.50 port 42580 ssh2
+Jun 15 08:18:08 myserver sshd[63478]: Failed password for invalid user git from 203.0.113.50 port 55924 ssh2
+Jun 15 08:18:20 myserver sshd[44911]: Failed password for invalid user git from 203.0.113.50 port 64923 ssh2
+Jun 15 08:18:36 myserver sshd[12082]: Accepted password for carol from 10.0.0.5 port 53825 ssh2
+Jun 15 08:18:38 myserver sshd[11952]: pam_unix(sshd:session): session opened for user carol by (uid=0)
+Jun 15 08:18:54 myserver sshd[18414]: Failed password for invalid user bob from 203.0.113.50 port 44120 ssh2
+Jun 15 08:19:00 myserver sshd[60352]: Accepted password for carol from 10.0.0.5 port 50626 ssh2
+Jun 15 08:19:02 myserver sshd[60855]: pam_unix(sshd:session): session opened for user carol by (uid=0)
+Jun 15 08:19:09 myserver sshd[55962]: Accepted password for carol from 10.0.0.5 port 61295 ssh2
+Jun 15 08:19:11 myserver sshd[45713]: pam_unix(sshd:session): session opened for user carol by (uid=0)
+Jun 15 08:19:25 myserver sshd[46031]: Failed password for invalid user bob from 203.0.113.50 port 55574 ssh2
+Jun 15 08:19:40 myserver sshd[44581]: Failed password for invalid user alice from 203.0.113.50 port 48685 ssh2
+Jun 15 08:20:17 myserver sshd[37730]: Failed password for invalid user alice from 203.0.113.50 port 59876 ssh2
+Jun 15 08:20:47 myserver sshd[57784]: Accepted password for alice from 192.168.1.20 port 57502 ssh2
+Jun 15 08:20:49 myserver sshd[26043]: pam_unix(sshd:session): session opened for user alice by (uid=0)
+Jun 15 08:20:57 myserver sshd[45343]: Failed password for invalid user dave from 203.0.113.50 port 46940 ssh2
+Jun 15 08:21:06 myserver sshd[56174]: Accepted password for carol from 10.0.0.6 port 46300 ssh2
+Jun 15 08:21:08 myserver sshd[14558]: pam_unix(sshd:session): session opened for user carol by (uid=0)
+Jun 15 08:21:31 myserver sshd[55211]: Failed password for invalid user dave from 203.0.113.50 port 63918 ssh2
+Jun 15 08:21:47 myserver sshd[30428]: Failed password for invalid user carol from 203.0.113.50 port 63361 ssh2
+Jun 15 08:21:49 myserver sshd[28024]: Accepted password for alice from 10.0.0.5 port 64299 ssh2
+Jun 15 08:21:51 myserver sshd[26049]: pam_unix(sshd:session): session opened for user alice by (uid=0)
+Jun 15 08:22:09 myserver sshd[52590]: Failed password for invalid user carol from 203.0.113.50 port 62009 ssh2
+Jun 15 08:22:52 myserver sshd[52469]: Accepted password for carol from 10.0.0.6 port 62398 ssh2
+Jun 15 08:22:54 myserver sshd[14679]: pam_unix(sshd:session): session opened for user carol by (uid=0)
+Jun 15 08:27:32 myserver sshd[45142]: Accepted password for carol from 10.0.0.5 port 55054 ssh2
+Jun 15 08:27:34 myserver sshd[18180]: pam_unix(sshd:session): session opened for user carol by (uid=0)
+Jun 15 08:28:28 myserver sshd[33283]: Accepted password for alice from 10.0.0.6 port 52130 ssh2
+Jun 15 08:28:30 myserver sshd[23730]: pam_unix(sshd:session): session opened for user alice by (uid=0)
+Jun 15 08:29:34 myserver sshd[39714]: Accepted password for bob from 10.0.0.5 port 49108 ssh2
+Jun 15 08:29:36 myserver sshd[51660]: pam_unix(sshd:session): session opened for user bob by (uid=0)
+Jun 15 08:29:40 myserver sshd[37696]: Accepted password for alice from 10.0.0.5 port 62876 ssh2
+Jun 15 08:29:42 myserver sshd[32298]: pam_unix(sshd:session): session opened for user alice by (uid=0)
+Jun 15 08:30:16 myserver sshd[43919]: Failed password for alice from 198.51.100.1 port 54355 ssh2
+Jun 15 08:30:35 myserver sshd[26246]: Failed password for alice from 198.51.100.1 port 43965 ssh2
+Jun 15 08:30:47 myserver sshd[32156]: Failed password for alice from 198.51.100.2 port 42098 ssh2
+Jun 15 08:30:52 myserver sshd[46301]: Failed password for alice from 198.51.100.2 port 59277 ssh2
+Jun 15 08:31:04 myserver sshd[24432]: Failed password for alice from 198.51.100.3 port 59282 ssh2
+Jun 15 08:31:09 myserver sshd[56389]: Failed password for alice from 198.51.100.3 port 42326 ssh2
+Jun 15 08:31:34 myserver sshd[25003]: Failed password for alice from 198.51.100.4 port 41929 ssh2
+Jun 15 08:31:41 myserver sshd[31654]: Failed password for alice from 198.51.100.4 port 41029 ssh2
+Jun 15 08:31:48 myserver sshd[25597]: Failed password for alice from 198.51.100.5 port 56847 ssh2
+Jun 15 08:32:01 myserver sshd[41812]: Failed password for alice from 198.51.100.5 port 61921 ssh2
+Jun 15 08:32:12 myserver sshd[18671]: Failed password for alice from 198.51.100.6 port 57669 ssh2
+Jun 15 08:32:40 myserver sshd[47762]: Failed password for alice from 198.51.100.6 port 58711 ssh2
+Jun 15 08:33:00 myserver sshd[61420]: Failed password for alice from 198.51.100.7 port 47962 ssh2
+Jun 15 08:33:20 myserver sshd[22478]: Failed password for alice from 198.51.100.7 port 53338 ssh2
+Jun 15 08:33:28 myserver sshd[53187]: Failed password for alice from 198.51.100.8 port 43176 ssh2
+Jun 15 08:33:46 myserver sshd[37759]: Failed password for alice from 198.51.100.8 port 51609 ssh2
+Jun 15 08:34:04 myserver sshd[57780]: Failed password for alice from 198.51.100.9 port 55303 ssh2
+Jun 15 08:34:10 myserver sshd[52824]: Failed password for alice from 198.51.100.9 port 62064 ssh2
+Jun 15 08:34:35 myserver sshd[13972]: Failed password for alice from 198.51.100.10 port 43224 ssh2
+Jun 15 08:34:52 myserver sshd[32236]: Failed password for alice from 198.51.100.10 port 63862 ssh2
+Jun 15 08:35:22 myserver sshd[26295]: Failed password for alice from 198.51.100.11 port 43580 ssh2
+Jun 15 08:35:33 myserver sshd[45146]: Failed password for alice from 198.51.100.11 port 46232 ssh2
+Jun 15 08:45:24 myserver sshd[37648]: Failed password for dave from 198.51.100.99 port 44593 ssh2
+Jun 15 08:45:39 myserver sshd[40318]: Failed password for dave from 198.51.100.99 port 49127 ssh2
+Jun 15 08:45:56 myserver sshd[39041]: Failed password for dave from 198.51.100.99 port 42470 ssh2
+Jun 15 08:46:23 myserver sshd[13315]: Failed password for dave from 198.51.100.99 port 43208 ssh2
+Jun 15 08:46:53 myserver sshd[64789]: Failed password for dave from 198.51.100.99 port 57713 ssh2
+Jun 15 08:47:08 myserver sshd[16112]: Accepted password for dave from 198.51.100.99 port 40483 ssh2
+Jun 15 08:47:09 myserver sshd[59385]: pam_unix(sshd:session): session opened for user dave by (uid=0)
+Jun 15 08:50:08 myserver sshd[20899]: sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/bin/bash
+Jun 15 08:50:19 myserver sshd[41826]: sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/bin/bash
+Jun 15 08:50:31 myserver sshd[24008]: sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/bin/bash
+Jun 15 08:50:42 myserver sshd[13842]: sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/bin/bash

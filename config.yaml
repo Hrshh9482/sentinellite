@@ -1,0 +1,9 @@
+# SentinelLite global configuration
+# Year to assume for syslog timestamps that omit the year (e.g. "Jan  1 00:00:00")
+log_year: null  # null = use current year at parse time
+
+# Maximum log file size accepted by CLI (bytes)
+max_file_bytes: 104857600  # 100 MB
+
+# API request body size limit (bytes)
+api_max_body_bytes: 2097152  # 2 MB
