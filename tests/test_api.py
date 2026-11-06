@@ -20,6 +20,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 import pytest
 
+# Setup must run before importing the API module (it configures the DB path).
 # ---- Point the API at a temp DB before importing the app ---------------
 _FIXTURE_DIR = Path(__file__).parent / "fixtures"
 _FIXTURE_DIR.mkdir(exist_ok=True)
@@ -32,6 +33,7 @@ if _db_path.exists():
 
 from fastapi import HTTPException
 from fastapi.responses import JSONResponse
+
 from sentinellite.api import alerts_for_ip, get_alert, ingest, list_alerts, stats
 from sentinellite.models import Alert
 from sentinellite.storage import init_db, save_alerts

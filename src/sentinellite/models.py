@@ -13,7 +13,6 @@ from typing import Literal, Optional
 
 from pydantic import BaseModel, field_validator, model_validator
 
-
 # ---------------------------------------------------------------------------
 # Event — one parsed log line
 # ---------------------------------------------------------------------------

@@ -9,6 +9,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
+import pytest
+
 from sentinellite.parsers.ssh_auth import SSHAuthParser
 
 

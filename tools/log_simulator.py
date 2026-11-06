@@ -87,13 +87,13 @@ def gen_lines(base_time: datetime) -> list[str]:
         add(t, f"Failed password for dave from {saf_ip} port {random.randint(40000,65000)} ssh2")
     t += timedelta(seconds=15)
     add(t, f"Accepted password for dave from {saf_ip} port {random.randint(40000,65000)} ssh2")
-    add(t + timedelta(seconds=1), f"pam_unix(sshd:session): session opened for user dave by (uid=0)")
+    add(t + timedelta(seconds=1), "pam_unix(sshd:session): session opened for user dave by (uid=0)")
 
     # 6. Sudo abuse — bob runs sudo 4 times quickly
     t = base_time + timedelta(minutes=50)
     for _ in range(4):
         t += timedelta(seconds=random.randint(5, 15))
-        add(t, f"sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/bin/bash")
+        add(t, "sudo: bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/bin/bash")
 
     # Sort by timestamp so the file looks like a real log
     lines.sort()

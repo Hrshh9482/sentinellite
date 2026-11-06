@@ -1,5 +1,5 @@
 """
-cli.py — Command-line interface for SentinelLite.
+cli.py â€” Command-line interface for SentinelLite.
 
 Usage:
   python -m sentinellite.cli --file path/to/auth.log [options]
@@ -38,12 +38,15 @@ def _load_config(project_root: Path) -> dict:
 
 
 def _print_table(alerts: list[Alert]) -> None:
-    """Simple fixed-width table output — no external tabulate dependency."""
+    """Simple fixed-width table output â€” no external tabulate dependency."""
     if not alerts:
         print("No alerts detected.")
         return
 
-    header = f"{'ID':<5} {'Severity':<10} {'Rule':<25} {'MITRE':<12} {'IP':<18} {'User':<15} {'Risk':>5}"
+    header = (
+        f"{'ID':<5} {'Severity':<10} {'Rule':<25} {'MITRE':<12} "
+        f"{'IP':<18} {'User':<15} {'Risk':>5}"
+    )
     print(header)
     print("-" * len(header))
     for a in alerts:
@@ -56,7 +59,7 @@ def _print_table(alerts: list[Alert]) -> None:
 def _dry_run_blocker(alerts: list[Alert]) -> None:
     """
     For high/critical alerts, print the netsh command that WOULD block the IP.
-    We never execute it — no subprocess, no elevation required.
+    We never execute it â€” no subprocess, no elevation required.
     """
     high_ips = {
         a.source_ip
@@ -103,7 +106,7 @@ def parse_threshold_overrides(raw: list[str]) -> dict[str, int | float]:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         prog="sentinellite",
-        description="SentinelLite — mini-SIEM log analyser",
+        description="SentinelLite â€” mini-SIEM log analyser",
     )
     parser.add_argument("--file", required=True, help="Path to the log file to analyse")
     parser.add_argument(
@@ -135,7 +138,7 @@ def main(argv: list[str] | None = None) -> int:
         print(f"ERROR: File is empty: {log_path}", file=sys.stderr)
         return 2
     if log_path.stat().st_size > _MAX_FILE_BYTES:
-        print(f"ERROR: File exceeds 100 MB size limit.", file=sys.stderr)
+        print("ERROR: File exceeds 100 MB size limit.", file=sys.stderr)
         return 2
 
     # ---- Parse --------------------------------------------------------

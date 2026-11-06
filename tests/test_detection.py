@@ -10,7 +10,6 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-import pytest
 from sentinellite.detection.engine import DetectionEngine, load_rules
 from sentinellite.models import Event
 
